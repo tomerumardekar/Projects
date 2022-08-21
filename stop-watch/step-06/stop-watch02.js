@@ -29,19 +29,6 @@ return timeString
 
 function displayTime(){
 
-// option to present arguments
-
-   // stopWatchView.innerHTML = minutes+ ':' + seconds + ':'+ hundredth;
-/* let secondsString = seconds;
-if(seconds<10){
-    secondsString='0' + seconds;
-}
-
-let minutesString =minutes;
-if(minutes<10){
-   minutesString='0' + minutes;
-} */
-
     stopWatchView.innerHTML=getTimeString();
 }
 
