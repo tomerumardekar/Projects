@@ -6,7 +6,12 @@ let minutes =12;
 
 
 function displayTime(){
-    stopWatchView.innerHTML = minutes+ ':' + seconds + ':'+ hundredth;
 
+// option to present arguments
+
+   // stopWatchView.innerHTML = minutes+ ':' + seconds + ':'+ hundredth;
+
+    stopWatchView.innerHTML=`${minutes}:${seconds}:${hundredth}`;
 }
+
 displayTime();
