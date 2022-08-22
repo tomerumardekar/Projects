@@ -1,6 +1,10 @@
 const stopWatch = document.getElementById('stopWatch');
-
-
+const startStop=document.getElementById('start-stop');
+startStop.addEventListener('click',startButton);
+const restartButton =document.getElementById('restart');
+restartButton.addEventListener('click',restart);
+const lapsButton = document.getElementById('laps');
+lapsButton.addEventListener('click',addlaps);
 
 let hundredth = 0;
 let seconds = 0;
@@ -13,11 +17,16 @@ let minutes = 0;
     if(seconds< 9){
       secondsString = '0' + seconds;
     }
-  
-stopWatch.innerHTML= `${minutes}:${ secondsString}:${hundredth}`;
+  let minuteString = minutes;
+  if(minutes < 9){
+  minuteString = '0' + minutes;
+  }
+  let hundredthString = hundredth;
+  if(hundredth < 9){
+ hundredthString = '0' + minutes;
+  }
+stopWatch.innerHTML= `${minuteString}:${ secondsString}:${hundredthString}`;
 }
-
-
 
 
 function timeChange(){
@@ -32,8 +41,28 @@ if(seconds>59){
 } 
 displayTime();
 }
-setInterval(timeChange,10);
+/* setInterval(timeChange,10); */
 
+let zeroing = null;
+function startButton(){
+  if(zeroing == null){
+    zeroing = setInterval(timeChange,10);
+startStop.innerHTML='Stop';
+  }else{
+  clearInterval(zeroing);
+ startStop.innerHTML='Start';
+  zeroing = null;
+  }
+  
+}
 
+function restart(){
+ hundredth = 0;
+ seconds = 0;
+ minutes = 0;
+displayTime();
+}
 
-
+function addlaps(){
+lapsButton.innerHTML=`<li>${displayTime()} </li>`;
+}
