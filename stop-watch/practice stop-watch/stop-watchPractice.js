@@ -4,7 +4,8 @@ startStop.addEventListener('click',startButton);
 const restartButton =document.getElementById('restart');
 restartButton.addEventListener('click',restart);
 const lapsButton = document.getElementById('laps');
-lapsButton.addEventListener('click',addlaps);
+lapsButton.addEventListener('click',addLaps);
+const lapsViev =document.getElementById('laps-view');
 
 let hundredth = 0;
 let seconds = 0;
@@ -26,6 +27,7 @@ let minutes = 0;
  hundredthString = '0' + minutes;
   }
 stopWatch.innerHTML= `${minuteString}:${ secondsString}:${hundredthString}`;
+return `${minuteString}:${ secondsString}:${hundredthString}`;
 }
 
 
@@ -63,6 +65,7 @@ function restart(){
 displayTime();
 }
 
-function addlaps(){
-lapsButton.innerHTML=`<li>${displayTime()} </li>`;
+function addLaps(){
+lapsViev.innerHTML +=`<li>${displayTime()} </li>`;
+
 }
