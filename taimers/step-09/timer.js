@@ -3,16 +3,25 @@
    let time = initialTime;
    let timerElement;
    let timeView;
-
+let intervalId;
 function  displayTime(){
   time--;
+  if (time < 0){
+    stopTimer();
+    return;
+  }
   timeView.innerText = time;
 }
 
 function startTimer(){
     console.log('timer is started');
-    setInterval(displayTime,1000);
+   intervalId = setInterval(displayTime,1000);
 }
+
+function stopTimer(){
+clearInterval(intervalId);
+}
+
 function deleteTimer(){
   timerElement.remove();
 }
